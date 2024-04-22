@@ -1,5 +1,6 @@
 import './style.css'
 import gsap from 'gsap'
+import SplitType from 'split-type'
 
 //eyeball1
 //eyeball2
@@ -40,8 +41,8 @@ window.addEventListener('mousemove', (e) => {
     
 
 
-    half1Rotate(rangeX * 1.6)
-    half1X(rangeX * 2)
+    half1Rotate(rangeX * 2.5)
+    half1X(rangeX * 2.5)
 
     half2Rotate(rangeX)
 
@@ -49,4 +50,17 @@ window.addEventListener('mousemove', (e) => {
     
     eyeball1X(rangeX)
     eyeball1Y(rangeY)
+})
+const subtitle = new SplitType('.subtitle', { types: 'chars' })
+
+gsap.from(subtitle.chars,{
+scale:0,
+rotate:-360,
+stagger:{
+    each:'.1',
+    repeat:-1,
+    repeatDelay:2,
+},
+ease:'elastic.out(1, 0.5)',
+duration:2
 })
